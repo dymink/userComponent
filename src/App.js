@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import UserComponent from './Component/User/UserComponent';
+import * as data from './Mocks/user.json';
 
 class App extends Component {
   render() {
+    let props = {
+      id: data.id,
+      name: data.name,
+      surname: data.surname, 
+      country: data.country, 
+      town: data.town, 
+      avatar: data.avatar, 
+      likes: data.likes, 
+      followers: data.followers, 
+      following: data.following, 
+      is_comments_hide: data.is_comments_hide, 
+      comments: data.comments
+    }
+    
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <UserComponent {...props} />
       </div>
     );
   }

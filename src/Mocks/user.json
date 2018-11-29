@@ -1,0 +1,26 @@
+{
+    "id": 123,
+    "name":  "Harvey",
+    "surname": "Specter",
+    "country": "USA",
+    "town": "New York",
+    "avatar" : "url",
+    "likes": 12,
+    "following": 23,
+    "followers": 34,
+    "is_comments_hide": true,
+    "comments": [
+        {
+            "name":"Jan",
+            "surname": "Kowalski",
+            "timeStamp": 1543517572134,
+            "text": "First Comment"
+        },
+        {
+            "name":"Janusz",
+            "surname": "Kowalski",
+            "timeStamp": 1543517591201,
+            "text": "Second Comment"
+        }
+    ]
+}
