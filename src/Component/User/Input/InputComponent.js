@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-
 class InputComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            value: ''
+            value: 'add comment'
         }
     }
 
@@ -16,8 +15,12 @@ class InputComponent extends Component {
     render(){      
         return (
             <div>
-                <textarea value={this.state.value} onChange={(e) =>this.handleChange(e)} />
-                <button onClick={ () => this.props.addComment(this.state.value)}/>
+                { this.props.is_comments_hide ? '' :
+                    <div>
+                        <textarea value={this.state.value} onChange={(e) =>this.handleChange(e)} />
+                        <button onClick={ () => this.props.addComment(this.state.value)}/>
+                    </div>
+                }
             </div>
         )
     }
