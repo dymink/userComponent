@@ -12,7 +12,7 @@ class InputComponent extends Component {
         this.setState({value: event.target.value});
     }
 
-    render(){      
+    render(){
         return (
             <div>
                 { this.props.is_comments_hide ? '' :

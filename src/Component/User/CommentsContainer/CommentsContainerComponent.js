@@ -8,7 +8,6 @@ class CommentsContainerComponent extends Component {
     }
 
     render(){
-        console.log(this.props.comments)
         return (
             <div>
                 { this.props.is_comments_hide ? '' :

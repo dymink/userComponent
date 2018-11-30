@@ -17,16 +17,13 @@ class UserComponent extends Component {
   }
 
   addComment(comment){
-    console.log(comment)
-    //let newComment = this.state.comments.push(comment);
-    let commentToAdd = {
+    let newComment = {
       name: this.props.name,
       surname: this.props.surname,
-      timeStamp: new Date(),
+      timeStamp: Date.now().toString(),
       text: comment
     }
-    this.setState({comments: this.state.comments.push(commentToAdd)});
-    //console.log(this.state.comments)
+    this.setState({comments: [...this.state.comments, newComment]});
   }
 
   showHide(){
@@ -37,11 +34,11 @@ class UserComponent extends Component {
      }
   }
 
-  likeHandle(){
-    this.setState({likes: this.state.likes +1 })
+  increaseHandle(type){
+    this.setState({[type]: this.state[type] + 1 })
   }
-  
-  render() {    
+
+  render() {
     return (
       <div>
         <div>{this.props.name}</div>
@@ -49,9 +46,9 @@ class UserComponent extends Component {
         <div>{this.props.country}</div>
         <div>{this.props.town}</div>
         <div>
-          <div>FOLLOWERS: {this.state.followers}</div>
+          <div onClick={this.increaseHandle.bind(this, 'followers')}>FOLLOWERS: {this.state.followers}</div>
           <div>FOLLOWING: {this.state.following}</div>
-          <div onClick={this.likeHandle.bind(this)}>LIKES: {this.state.likes}</div>
+          <div onClick={this.increaseHandle.bind(this, 'likes')}>LIKES: {this.state.likes}</div>
         </div>
         <button onClick={this.showHide.bind(this)}>Hide</button>
         <CommentsContainerComponent comments={this.state.comments} is_comments_hide={this.state.is_comments_hide}/>         
