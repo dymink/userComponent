@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class InputComponent extends Component {
+class Input extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -15,7 +15,7 @@ class InputComponent extends Component {
     render(){
         return (
             <div>
-                { this.props.is_comments_hide ? '' :
+                { this.props.isCommentsHide ? '' :
                     <div>
                         <textarea value={this.state.value} onChange={(e) =>this.handleChange(e)} />
                         <button onClick={ () => this.props.addComment(this.state.value)}/>
@@ -26,4 +26,4 @@ class InputComponent extends Component {
     }
 
 }
-export default InputComponent;
+export default Input;

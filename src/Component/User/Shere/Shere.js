@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ShereComponent extends Component {
+class Shere extends Component {
     constructor(props){
         super(props)
     }
@@ -10,17 +10,18 @@ class ShereComponent extends Component {
     }
 
     render(){
-
+        let url = this.getURL();
         if(!this.props.show) {
             return null;
         }
 
+        
         return (
             <div>
-                { this.props.isShow ? "jest" : "nie ma" }
+                <input value={url}/>
             </div>
         )
     }
 
 }
-export default ShereComponent;
+export default Shere;

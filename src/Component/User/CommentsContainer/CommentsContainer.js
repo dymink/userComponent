@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import CommentComponent from '../Comment/CommentComponent';
+import Comment from '../Comment/Comment';
 
-class CommentsContainerComponent extends Component {
+class CommentsContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -17,10 +17,10 @@ class CommentsContainerComponent extends Component {
     render(){
         return (
             <div>
-                { this.props.is_comments_hide ? '' :
+                { this.props.isCommentsHide ? '' :
                     <ul>
                         {this.sort(this.props.comments).map((comment, index) => {
-                            return <CommentComponent key={index} comment={comment} />
+                            return <Comment key={index} comment={comment} />
                         })}
                     </ul>
                 }
@@ -30,4 +30,4 @@ class CommentsContainerComponent extends Component {
     }
 
 }
-export default CommentsContainerComponent;
+export default CommentsContainer;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import UserComponent from './Component/User/UserComponent';
+import User from './Component/User/User';
 import * as data from './Mocks/user.json';
 
 class App extends Component {
@@ -15,13 +15,13 @@ class App extends Component {
       likes: data.likes, 
       followers: data.followers, 
       following: data.following, 
-      is_comments_hide: data.is_comments_hide, 
+      isCommentsHide: data.is_comments_hide,
       comments: data.comments
     }
     
     return (
       <div className="App">
-        <UserComponent {...props} />
+        <User {...props} />
       </div>
     );
   }
