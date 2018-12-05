@@ -1,24 +1,44 @@
 import React, { Component } from 'react';
 
+import './Input.css'
+
 class Input extends Component {
     constructor(props){
         super(props)
         this.state = {
-            value: 'add comment'
+            value: '',
+            isInputShowed: false
         }
     }
 
-    handleChange(event) {
+    handleChangeInputText(event) {
         this.setState({value: event.target.value});
     }
 
+    onClickHandle(){
+        if(this.state.isInputShowed){
+            this.props.addComment(this.state.value);
+            this.setState({
+                isInputShowed: false,
+                value: ''
+            })
+        }else{
+            this.setState({isInputShowed: true})
+        }
+    }
+
     render(){
+        let textarea = this.state.isInputShowed ? <textarea
+            placeholder="Wright a comment..."
+            value={this.state.value}
+            onChange={(e) =>this.handleChangeInputText(e)}
+            /> : "";
         return (
             <div>
                 { this.props.isCommentsHide ? '' :
-                    <div>
-                        <textarea value={this.state.value} onChange={(e) =>this.handleChange(e)} />
-                        <button onClick={ () => this.props.addComment(this.state.value)}/>
+                    <div className="add_comment">
+                        { textarea }
+                        <div onClick={ () => this.onClickHandle()}> Add comment </div>
                     </div>
                 }
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Stats.css'
 
 class Stats extends Component {
     constructor(props){
@@ -9,12 +10,27 @@ class Stats extends Component {
         let followers = this.props.isFollow ? this.props.followers + 1 : this.props.followers
         let text = this.props.isFollow ? 'UNFOLLOW' : 'FOLLOW'
         return (
-            <div>
-                <div>FOLLOWERS: {followers}</div>
-                <div>FOLLOWING: {this.props.following}</div>
-                <div onClick={this.props.increaseHandle}>LIKES: {this.props.likes}</div>
-                <button onClick={ this.props.toggleFollow}>{text}</button>
-            </div>
+            <React.Fragment>
+                <div className="stats_main">
+                    <div
+                        className="stats_numbers"
+                        onClick={this.props.increaseHandle}>
+                        {this.props.likes}
+                        <span>Likes</span>
+                    </div>
+                    <div className="stats_numbers">
+                        {this.props.following}
+                        <span>Following</span>
+                    </div>
+                    <div className="stats_numbers">
+                        {followers}
+                        <span>Followers</span>
+                    </div>
+                    <button
+                        className="followButton"
+                        onClick={ this.props.toggleFollow}>{text}</button>
+                </div>
+            </React.Fragment>
         )
     }
 }

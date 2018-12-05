@@ -8,6 +8,7 @@ import PersonalDetails from './PersonalDetails/PersonalDetails'
 
 import './User.css';
 
+
 class User extends Component {
   constructor(props){
     super(props)
@@ -28,6 +29,7 @@ class User extends Component {
     let newComment = {
       name: this.props.name,
       surname: this.props.surname,
+      avatar: this.props.avatar,
       timeStamp: Date.now().toString(),
       text: comment
     }
@@ -53,39 +55,41 @@ class User extends Component {
   render() {
     let buttonName = this.state.isCommentsHide ? 'Show comments': 'Hide comments';
     return (
-      <React.Fragment>
-        <div>
-          <div>
+      <div className="main">
+        <div className="container">
+          <div className="user_background">
           </div>
-          <div>
+          <div className="user_main">
+            <div onClick={this.toggleModal.bind(this)} className="user_main-external-link"> <i className="fas fa-external-link-alt"></i></div>
+            <Shere show={this.state.isModalOpen} />
+            <PersonalDetails
+              name={this.props.name}
+              surname={this.props.surname}
+              avatar={this.props.avatar}
+              town={this.props.town}
+              country={this.props.country}/>
+            <Stats increaseHandle={
+              () => this.increaseHandle( 'likes')}
+              isFollow={this.state.isFollow}
+              toggleFollow={this.toggleFollow.bind(this)}
+              followers={this.state.followers}
+              following={this.state.following}
+              likes={this.state.likes}/>
+          </div>
+          <div className="user_main">
+            <div className="user_main_link" onClick={this.toggleComments.bind(this)}>
+              {`${buttonName} (${this.state.comments.length})`}
+            </div>
+            <CommentsContainer
+              comments={this.state.comments}
+              isCommentsHide={this.state.isCommentsHide}/>
+            <Input
+              addComment={this.addComment.bind(this)}
+              isCommentsHide={this.state.isCommentsHide}/>
           </div>
         </div>
-        <div>
-          <button onClick={this.toggleModal.bind(this)}> Modal </button>
-          <Shere show={this.state.isModalOpen} />
-          <PersonalDetails 
-            name={this.props.name} 
-            surname={this.props.surname} 
-            town={this.props.town} 
-            country={this.props.country}/>
-          <Stats increaseHandle={
-            () => this.increaseHandle( 'likes')} 
-            isFollow={this.state.isFollow}  
-            toggleFollow={this.toggleFollow.bind(this)} 
-            followers={this.state.followers} 
-            following={this.state.following} 
-            likes={this.state.likes}/>
-          <button onClick={this.toggleComments.bind(this)}>
-            {buttonName + " " + this.state.comments.length}
-          </button>
-          <CommentsContainer 
-            comments={this.state.comments} 
-            isCommentsHide={this.state.isCommentsHide}/>         
-          <Input 
-            addComment={this.addComment.bind(this)} 
-            isCommentsHide={this.state.isCommentsHide}/>      
-        </div>
-      </React.Fragment>
+      </div>
+
     );
   }
 }

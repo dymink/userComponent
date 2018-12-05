@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './PersonalDetails.css';
+
 class PersonalDetails extends Component {
   constructor(props){
     super(props)
@@ -7,16 +9,13 @@ class PersonalDetails extends Component {
 
   render(){
       return (
-        <React.Fragment>
-            <div className="container">
-                <div>{this.props.name}</div>
-                <div>{this.props.surname}</div>
+        <div className="personal_details">
+            <img src={this.props.avatar} className="circle" alt="avatar"/>
+            <div className="personal_details-text">
+                <div >{this.props.name} {this.props.surname}<i className="far fa-heart"></i></div>
+                <span>{this.props.town} {this.props.country}</span>
             </div>
-            <div>
-                <span>{this.props.town}</span>
-                <span>{this.props.country}</span>
-            </div>
-        </React.Fragment>
+        </div>
       )
   }
 } 

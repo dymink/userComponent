@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Shere.css'
+
 class Shere extends Component {
     constructor(props){
         super(props)
@@ -17,7 +19,7 @@ class Shere extends Component {
 
         
         return (
-            <div>
+            <div className="modal">
                 <input value={url}/>
             </div>
         )

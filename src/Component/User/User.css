@@ -1,4 +1,73 @@
 .container {
-    display: flex; /* or inline-flex */
-    flex-direction: row;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
+    border-radius: 5px;
+    margin: 20px;
+    max-width: 500px;
+    min-width: 320px;
+    min-height: 300px;
+    position: relative;
+    z-index: 0;
+    margin: 10px auto;
 }
+
+.main {
+    text-align: center;
+}
+
+.user_background {
+    z-index: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    height: 95px;
+    width: 100%;
+    background-color: #002C71 ;
+    border-radius: 5px 5px 0 0;
+}
+
+
+.user_main-external-link{
+    align-self: flex-end;
+    color: #FFA640;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.user_main_link{
+    text-align: left;
+    color: var(--main-accent-color);
+    text-decoration: underline;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.user_main {
+    margin: 17px;
+    top: 20px;
+    z-index: 2;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.user_main:last-child {
+    overflow-y: scroll;
+    max-height: 50rem;
+    position: static;
+    margin-top: 2rem;
+}
+
+.user_main:last-child::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+.user_main:last-child::-webkit-scrollbar-thumb {
+    background-color: var(--second-accent-color);
+}
+ 

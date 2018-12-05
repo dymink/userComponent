@@ -16,16 +16,16 @@ class CommentsContainer extends Component {
 
     render(){
         return (
-            <div>
+            <React.Fragment>
                 { this.props.isCommentsHide ? '' :
-                    <ul>
+                    <ul style={{padding: "0"}}>
                         {this.sort(this.props.comments).map((comment, index) => {
                             return <Comment key={index} comment={comment} />
                         })}
                     </ul>
                 }
                 <div>{this.props.children}</div>
-            </div>
+            </React.Fragment>
         )
     }
 
