@@ -1,0 +1,28 @@
+.modal{
+    position: absolute;
+    z-index: 2;
+    top: -9%;
+    left: 69%;
+}
+.modal input {
+    border: 2px solid var(--main-accent-color);
+    padding: 4px;
+    background: white;
+    color: var(--second-accent-color);
+    font-size: 0.7rem;
+}
+
+@media screen and (max-width: 475px) {
+    .modal {
+       left: 67%;
+    }
+    .modal input {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .modal {
+       left: 63%;
+    }
+}

@@ -1,0 +1,48 @@
+.personal_details {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: var(--second-accent-color);
+}
+.personal_details-text{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.personal_details-text-main{
+    margin-right: 10px;
+}
+.personal_details-text span{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.personal_details-text div .far{
+    margin-left: 12px;
+    color: #D3D3D3;
+}
+.circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #f7f7f7;
+}
+
+@media screen and (max-width: 468px) {
+    .personal_details{
+        justify-content: center;
+    }
+    .circle {
+        position: absolute;
+        top: -2rem;
+        transform: translateX(-10%);
+    }
+    .personal_details-text {
+        margin-top: 2rem;
+        text-align: center;
+    }
+}

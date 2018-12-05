@@ -1,0 +1,46 @@
+.comment_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    text-align: left;
+    color: #444444;
+}
+.comment_img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+}
+.comment_text {
+    flex-grow: 1;
+}
+
+.comment_container > div {
+    margin:10px;
+}
+.comment_container h4 {
+    color: var(--second-accent-color);
+    margin: 0.6rem 0;
+}
+.comment_container span {
+    color: var(--second-accent-color);
+}
+
+
+@media screen and (max-width: 375px) {
+    .comment_container {
+        padding: 0;
+    }
+    .comment_container p {
+    font-size: 0.87rem;
+    line-height: 1.2rem;
+    }
+    .comment_container span {
+        padding-right: 0.2rem;
+        font-size: 0.9rem;
+    }
+    .comment_container> div{
+        margin:4px;
+    }
+}
